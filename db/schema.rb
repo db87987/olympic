@@ -11,10 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151107103613) do
+ActiveRecord::Schema.define(version: 20151107133335) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "title"
+    t.integer  "department_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "departments", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "documents", force: :cascade do |t|
     t.string   "title"
@@ -28,6 +41,35 @@ ActiveRecord::Schema.define(version: 20151107103613) do
     t.datetime "updated_at",                 null: false
   end
 
+  create_table "events", force: :cascade do |t|
+    t.string   "title"
+    t.integer  "category_id"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.integer  "subject_id"
+    t.boolean  "info_activated",           default: false
+    t.text     "info_text"
+    t.string   "info_file_file_name"
+    t.string   "info_file_content_type"
+    t.integer  "info_file_file_size"
+    t.datetime "info_file_updated_at"
+    t.boolean  "tasks_activated",          default: false
+    t.text     "tasks_text"
+    t.string   "tasks_file_file_name"
+    t.string   "tasks_file_content_type"
+    t.integer  "tasks_file_file_size"
+    t.datetime "tasks_file_updated_at"
+    t.boolean  "events_activated",         default: false
+    t.text     "events_text"
+    t.string   "events_file_file_name"
+    t.string   "events_file_content_type"
+    t.integer  "events_file_file_size"
+    t.datetime "events_file_updated_at"
+    t.boolean  "published",                default: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+  end
+
   create_table "local_resources", force: :cascade do |t|
     t.string   "title"
     t.string   "url"
@@ -37,6 +79,12 @@ ActiveRecord::Schema.define(version: 20151107103613) do
     t.datetime "image_updated_at"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+  end
+
+  create_table "subjects", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

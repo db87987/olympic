@@ -1,8 +1,26 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-User.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+# Admin
+User.create(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+puts 'Admin created'
+
+#Departments
+ko = Department.create(title: 'КО')
+co = Department.create(title: 'ЦО')
+knvs = Department.create(title: 'КНВШ')
+puts 'Departments created'
+
+#Sections
+Category.create(title: "Каникулы", department_id: ko.id)
+Category.create(title: "Общие новости")
+Category.create(title: "Научная деятельность", department_id: knvs.id)
+Category.create(title: "Конкурс", department_id: knvs.id)
+Category.create(title: "Олимпиада РСОШ", department_id: ko.id)
+Category.create(title: "Всероссийская олимпиада", department_id: co.id)
+Category.create(title: "Региональная олимпиала", department_id: co.id)
+puts 'Categories created'
+
+#Subjects
+subjects = %w(Физики Химия Алгебра Геометрия Георгафия Физкультура Биология)
+subjects.each do |subject|
+  Subject.create(title: subject)
+end
+puts 'Subjects created'

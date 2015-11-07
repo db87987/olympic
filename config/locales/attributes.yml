@@ -1,0 +1,29 @@
+ru:
+  activerecord:
+    attributes:
+      document:
+        title: Заголовок
+        document_type_id: Тип
+        text: Текс
+        document_file: Прикрепленный файл
+      local_resource:
+        title: Заголовок
+        url: Ссылка
+        image: Изображение
+      category:
+        title: Заголовок
+        department: Ведомство
+        created_at: Дата создания
+      event:
+        title: Название
+        category: Категория
+        subject: Предмет
+        start_date: Дата начала
+        end_date: Дата конца
+        info_text: Описание
+        info_file: Файл
+        tasks_text: Описание
+        tasks_file: Файл
+        events_text: Описание
+        events_file: Файл
+        published: Опубликовано

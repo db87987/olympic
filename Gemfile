@@ -16,6 +16,8 @@ gem 'cancancan'
 gem 'draper'
 gem 'pundit'
 gem 'russian', '~> 0.6.0'
+gem "select2-rails"
+gem 'activeadmin-select2', github: 'mfairburn/activeadmin-select2'
 
 group :development, :test do
   gem 'byebug'

@@ -8,17 +8,21 @@ ru:
         other: Документы
       user:
         one: Пользователь
+        few: Пользователи
+        many: Пользователи
         other: Пользователи
       local_resource:
         one: Локальный ресурс
+        few: Локальные ресурсы
+        many: Локальные ресурсы
         other: Локальные ресурсы
-    attributes:
-      document:
-        title: Заголовок
-        document_type_id: Тип
-        text: Текс
-        document_file: Прикрепленный файл
-      local_resource:
-        title: Заголовок
-        url: Ссылка
-        image: Изображение
+      event:
+        one: Событие
+        few: События
+        many: События
+        other: События
+      category:
+        one: Категория
+        few: Категории
+        many: Категории
+        other: Категории
