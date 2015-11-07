@@ -9,9 +9,16 @@ ru:
       user:
         one: Пользователь
         other: Пользователи
+      local_resource:
+        one: Локальный ресурс
+        other: Локальные ресурсы
     attributes:
       document:
         title: Заголовок
         document_type_id: Тип
         text: Текс
         document_file: Прикрепленный файл
+      local_resource:
+        title: Заголовок
+        url: Ссылка
+        image: Изображение
