@@ -21,15 +21,15 @@ ActiveAdmin.register Document do
     actions
   end
 
-  show do |doc|
+  show do |resource|
     attributes_table do
       row :title
       row :document_type_id
       row :text do
-        simple_format doc.text
+        simple_format resource.text
       end
       row :document_file do
-        link_to doc.document_file_file_name, doc.document_file.url
+        link_to resource.document_file_file_name, resource.document_file.url
       end
     end
   end
