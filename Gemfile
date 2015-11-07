@@ -15,6 +15,7 @@ gem 'devise'
 gem 'cancancan'
 gem 'draper'
 gem 'pundit'
+gem 'russian', '~> 0.6.0'
 
 group :development, :test do
   gem 'byebug'

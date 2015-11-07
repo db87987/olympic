@@ -1,8 +1,18 @@
 ActiveAdmin.register Document do
+  config.batch_actions = false
+  config.clear_sidebar_sections!
   permit_params :title, :document_type_id, :text, :document_file
 
+  index do
+    id_column
+    column :title
+    column :document_type_id
+    column :created_at
+    actions
+  end
+
   form do |f|
-    inputs 'Details' do
+    inputs do
       input :title
       input :document_type_id
       input :text

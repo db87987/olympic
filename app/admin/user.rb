@@ -1,4 +1,6 @@
 ActiveAdmin.register User do
+  config.batch_actions = false
+  config.clear_sidebar_sections!
   permit_params :email, :password, :password_confirmation
 
   index do

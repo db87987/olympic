@@ -1,0 +1,17 @@
+ru:
+  activerecord:
+    models:
+      document:
+        one: Документ
+        few: Документы
+        many: Документы
+        other: Документы
+      user:
+        one: Пользователь
+        other: Пользователи
+    attributes:
+      document:
+        title: Заголовок
+        document_type_id: Тип
+        text: Текс
+        document_file: Прикрепленный файл
