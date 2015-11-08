@@ -4,7 +4,7 @@ ru:
       document:
         title: Заголовок
         document_type_id: Тип
-        text: Текс
+        text: Текст
         document_file: Прикрепленный файл
       local_resource:
         title: Заголовок
@@ -16,6 +16,7 @@ ru:
         created_at: Дата создания
       event:
         title: Название
+        category_id: Категория
         category: Категория
         subject: Предмет
         start_date: Дата начала
@@ -27,3 +28,10 @@ ru:
         events_text: Описание
         events_file: Файл
         published: Опубликовано
+      article:
+        title: Заголовок
+        category_id: Категория
+        category: Категория
+        date: Дата
+        text: Текст
+        image: Изображение
