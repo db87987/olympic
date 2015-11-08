@@ -19,10 +19,8 @@ ActiveAdmin.register Survey do
       input :start_date, as: :datepicker
       input :end_date, as: :datepicker
       input :show
-      f.inputs do
-        f.has_many :survey_options, heading: 'Варианты ответов', allow_destroy: true, new_record: true do |a|
-          a.input :text
-        end
+      f.has_many :survey_options, heading: 'Варианты ответов', allow_destroy: true, new_record: true do |a|
+        a.input :text
       end
     end
     actions
