@@ -2,7 +2,7 @@ ActiveAdmin.register Survey do
   config.batch_actions = false
   config.clear_sidebar_sections!
   permit_params :title, :question, :start_date, :end_date,
-                :show, survey_options_attributes: [:id, :text]
+                :show, survey_options_attributes: [:id, :text, :_destroy]
 
   index do
     id_column
