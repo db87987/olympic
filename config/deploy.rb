@@ -7,7 +7,7 @@ set :deploy_to, '/home/deploy'
 set :scm, :git
 set :format, :pretty
 set :log_level, :debug
-set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
+set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml', 'config/thin.yml')
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
 
 #rbenv
@@ -18,12 +18,7 @@ set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rben
 set :rbenv_map_bins, %w{rake gem bundle ruby}
 set :rbenv_roles, :all # default value
 
-namespace :deploy do
-  desc 'Restart application server'
-  task :restart do
-    on roles(:app) do
-      execute 'cd /home/deploy/current && ( RBENV_ROOT=~/.rbenv RBENV_VERSION=2.2.3 RACK_ENV=production ~/.rbenv/bin/rbenv exec bundle exec puma -C /home/deploy/shared/puma.rb --daemon )'
-    end
-  end
-  after :published, 'deploy:restart'
-end
+#thin
+set :thin_config_path, -> { "#{shared_path}/config/thin.yml" }
+
+after 'deploy:publishing', 'thin:restart'

@@ -91,6 +91,9 @@ GEM
       capistrano (~> 3.1)
       sshkit (~> 1.3)
     capistrano-stats (1.1.1)
+    capistrano-thin (1.2.0)
+      capistrano (~> 3.0)
+      thin (~> 1.6)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.7)
@@ -103,6 +106,7 @@ GEM
       execjs
     coffee-script-source (1.9.1.1)
     colorize (0.7.7)
+    daemons (1.2.3)
     debug_inspector (0.0.2)
     devise (3.5.2)
       bcrypt (~> 3.0)
@@ -117,6 +121,7 @@ GEM
       activesupport (>= 3.0)
       request_store (~> 1.0)
     erubis (2.7.0)
+    eventmachine (1.0.8)
     execjs (2.6.0)
     formtastic (3.1.3)
       actionpack (>= 3.2.13)
@@ -169,7 +174,6 @@ GEM
     pg (0.18.3)
     polyamorous (1.2.0)
       activerecord (>= 3.0)
-    puma (2.15.3)
     pundit (1.0.1)
       activesupport (>= 3.0.0)
     rack (1.6.4)
@@ -235,6 +239,10 @@ GEM
       colorize (>= 0.7.0)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
+    thin (1.6.4)
+      daemons (~> 1.0, >= 1.0.9)
+      eventmachine (~> 1.0, >= 1.0.4)
+      rack (~> 1.0)
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.1)
@@ -265,6 +273,7 @@ DEPENDENCIES
   capistrano-bundler
   capistrano-rails!
   capistrano-rbenv
+  capistrano-thin (~> 1.2.0)
   coffee-rails (~> 4.1.0)
   devise
   draper
@@ -272,7 +281,6 @@ DEPENDENCIES
   jquery-rails
   paperclip (~> 4.3)
   pg
-  puma
   pundit
   rails (= 4.2.4)
   russian (~> 0.6.0)
@@ -280,6 +288,7 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   select2-rails
   spring
+  thin
   turbolinks
   uglifier (>= 1.3.0)
   web-console (~> 2.0)

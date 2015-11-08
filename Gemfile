@@ -18,13 +18,14 @@ gem 'pundit'
 gem 'russian', '~> 0.6.0'
 gem "select2-rails"
 gem 'activeadmin-select2', github: 'mfairburn/activeadmin-select2'
-gem 'puma'
+gem 'thin'
 
 group :development, :test do
   gem 'capistrano', '~> 3.3.0'
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
   gem 'capistrano-rails', github: 'capistrano/rails', branch: 'master'
+  gem 'capistrano-thin', '~> 1.2.0'
   gem 'byebug'
 end
 
