@@ -35,3 +35,11 @@ ru:
         date: Дата
         text: Текст
         image: Изображение
+      site_question:
+        name: Имя
+        question: Вопрос
+      frequent_question:
+        sn: Номер
+        question: Вопрос
+        answer: Ответ
+        published: Опубликован

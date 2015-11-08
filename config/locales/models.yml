@@ -31,3 +31,13 @@ ru:
         few: Новости
         many: Новости
         other: Новости
+      site_question:
+        one: Вопрос с сайта
+        few: Вопросы с сайта
+        many: Вопросы с сайта
+        other: Вопросы с сайта
+      frequent_question:
+        one: Частый вопрос
+        few: Частые вопросы
+        many: Частые вопросы
+        other: Частые вопросы
