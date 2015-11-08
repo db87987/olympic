@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151108111008) do
+ActiveRecord::Schema.define(version: 20151108120732) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,7 +59,6 @@ ActiveRecord::Schema.define(version: 20151108111008) do
     t.integer  "category_id"
     t.date     "start_date"
     t.date     "end_date"
-    t.integer  "subject_id"
     t.boolean  "info_activated",           default: false
     t.text     "info_text"
     t.string   "info_file_file_name"
@@ -81,6 +80,11 @@ ActiveRecord::Schema.define(version: 20151108111008) do
     t.boolean  "published",                default: false
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
+  end
+
+  create_table "events_subjects", force: :cascade do |t|
+    t.integer "event_id"
+    t.integer "subject_id"
   end
 
   create_table "frequent_questions", force: :cascade do |t|

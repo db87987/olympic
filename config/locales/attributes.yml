@@ -18,7 +18,8 @@ ru:
         title: Название
         category_id: Категория
         category: Категория
-        subject: Предмет
+        subjects: Предметы
+        subject_ids: Предметы
         start_date: Дата начала
         end_date: Дата конца
         info_text: Описание

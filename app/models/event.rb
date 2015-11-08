@@ -5,6 +5,6 @@ class Event < ActiveRecord::Base
   do_not_validate_attachment_file_type :info_file
   do_not_validate_attachment_file_type :tasks_file
   do_not_validate_attachment_file_type :events_file
-  belongs_to :subject
+  has_and_belongs_to_many :subjects
   belongs_to :category
 end
