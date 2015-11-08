@@ -52,3 +52,15 @@ ru:
         show: Отображать на главной
       survey_option:
         text: Ответ
+      contact:
+        firstname: Имя
+        lastname: Фамилия
+        middlename: Отчество
+        position: Должность
+        organization: Организация
+        phone1: Телефон
+        phone2: Телефон 2
+        photo: Фото
+        event_id: Мероприятие
+        event: Мероприятие
+        from_event?: С мероприятия

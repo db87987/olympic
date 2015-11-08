@@ -7,4 +7,6 @@ class Event < ActiveRecord::Base
   do_not_validate_attachment_file_type :events_file
   has_and_belongs_to_many :subjects
   belongs_to :category
+  has_many :contacts, :dependent => :destroy
+  accepts_nested_attributes_for :contacts, :allow_destroy => true
 end

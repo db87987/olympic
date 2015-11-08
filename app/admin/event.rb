@@ -4,7 +4,9 @@ ActiveAdmin.register Event do
   permit_params :published, :title, :category_id, :start_date, :end_date,
                 :info_activated, :info_text, :info_file,
                 :tasks_activated, :tasks_text, :tasks_file,
-                :events_activated, :events_text, :events_file, subject_ids: []
+                :events_activated, :events_text, :events_file, subject_ids: [],
+                contacts_attributes: [:id, :firstname, :lastname, :middlename, :position,
+                                      :organization, :phone1, :phone2, :email, :photo, :_destroy]
 
   index do
     id_column
@@ -38,6 +40,17 @@ ActiveAdmin.register Event do
       input :events_activated, label: "Отобразить вкладку 'События и итоги'"
       input :events_text
       input :events_file
+      f.has_many :contacts, heading: 'Контакты', allow_destroy: true, new_record: true do |a|
+        a.input :firstname
+        a.input :lastname
+        a.input :middlename
+        a.input :position
+        a.input :organization
+        a.input :phone1
+        a.input :phone2
+        a.input :email
+        a.input :photo
+      end
     end
     actions
   end
@@ -48,6 +61,15 @@ ActiveAdmin.register Event do
       row :created_at
       row :subjects do
         resource.subjects.pluck(:title)
+      end
+      panel "Контакты" do
+        table_for resource.contacts do
+          column :firstname
+          column :lastname
+          column :middlename
+          column :phone1
+          column :phone2
+        end
       end
     end
   end
