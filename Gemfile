@@ -25,7 +25,6 @@ group :development, :test do
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
   gem 'capistrano-rails', github: 'capistrano/rails', branch: 'master'
-  gem 'capistrano3-puma', github: "seuros/capistrano-puma"
   gem 'byebug'
 end
 
