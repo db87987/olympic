@@ -44,3 +44,11 @@ ru:
         question: Вопрос
         answer: Ответ
         published: Опубликован
+      survey:
+        title: Название
+        question: Вопрос
+        start_date: Дата начала
+        end_date: Дата конца
+        show: Отображать на главной
+      survey_option:
+        text: Ответ
