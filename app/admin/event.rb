@@ -3,7 +3,7 @@ ActiveAdmin.register Event do
   config.clear_sidebar_sections!
   permit_params :published, :title, :category_id, :start_date, :end_date,
                 :info_activated, :info_text, :info_file,
-                :tasks_activated, :tasks_text, :tasks_file,
+                :tasks_activated, :tasks_text, :tasks_file, :user_id,
                 :events_activated, :events_text, :events_file, subject_ids: [],
                 contacts_attributes: [:id, :firstname, :lastname, :middlename, :position,
                                       :organization, :phone1, :phone2, :email, :photo, :_destroy]
@@ -22,6 +22,9 @@ ActiveAdmin.register Event do
 
 
     f.inputs do
+      if current_user.role == 'admin'
+        input :user
+      end
       input :published
       input :title
       input :category
@@ -58,6 +61,7 @@ ActiveAdmin.register Event do
   show do |resource|
     attributes_table do
       row :title
+      row :user
       row :created_at
       row :subjects do
         resource.subjects.pluck(:title)
@@ -71,6 +75,12 @@ ActiveAdmin.register Event do
           column :phone2
         end
       end
+    end
+  end
+
+  before_create do |record|
+    unless record.user_id
+      record.user_id = current_user.id
     end
   end
 end

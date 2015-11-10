@@ -29,6 +29,8 @@ ru:
         events_text: Описание
         events_file: Файл
         published: Опубликовано
+        user_id: Ответственный
+        user: Ответственный
       article:
         title: Заголовок
         category_id: Категория
@@ -36,6 +38,8 @@ ru:
         date: Дата
         text: Текст
         image: Изображение
+        user_id: Ответственный
+        user: Ответственный
       site_question:
         name: Имя
         question: Вопрос
@@ -44,6 +48,8 @@ ru:
         question: Вопрос
         answer: Ответ
         published: Опубликован
+        user_id: Ответственный
+        user: Ответственный
       survey:
         title: Название
         question: Вопрос

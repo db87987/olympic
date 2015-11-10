@@ -1,7 +1,7 @@
 ActiveAdmin.register FrequentQuestion do
   config.batch_actions = false
   config.clear_sidebar_sections!
-  permit_params :sn, :question, :answer, :published
+  permit_params :sn, :question, :answer, :published, :user_id
 
   index do
     id_column
@@ -15,6 +15,9 @@ ActiveAdmin.register FrequentQuestion do
 
   form do |f|
     inputs do
+      if current_user.role == 'admin'
+        input :user
+      end
       input :sn
       input :published
       input :question
@@ -33,6 +36,12 @@ ActiveAdmin.register FrequentQuestion do
       row :answer do
         simple_format resource.answer
       end
+    end
+  end
+
+  before_create do |record|
+    unless record.user_id
+      record.user_id = current_user.id
     end
   end
 end

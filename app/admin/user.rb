@@ -1,7 +1,7 @@
 ActiveAdmin.register User do
   config.batch_actions = false
   config.clear_sidebar_sections!
-  permit_params :email, :password, :password_confirmation
+  permit_params :email, :password, :password_confirmation, :role, :department_id, :name
 
   index do
     selectable_column
@@ -19,12 +19,24 @@ ActiveAdmin.register User do
   filter :created_at
 
   form do |f|
-    f.inputs "Admin Details" do
+    f.inputs do
       f.input :email
       f.input :password
       f.input :password_confirmation
+      f.input :role, as: :select, collection: Hash[User::ROLES.map{|r| [r,r]}], include_blank: false
+      f.input :department
     end
     f.actions
+  end
+
+  controller do
+    def update
+      if params[:user][:password].blank?
+        params[:user].delete("password")
+        params[:user].delete("password_confirmation")
+      end
+      super
+    end
   end
 
 end

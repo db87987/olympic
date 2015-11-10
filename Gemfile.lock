@@ -174,8 +174,6 @@ GEM
     pg (0.18.3)
     polyamorous (1.2.0)
       activerecord (>= 3.0)
-    pundit (1.0.1)
-      activesupport (>= 3.0.0)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -281,7 +279,6 @@ DEPENDENCIES
   jquery-rails
   paperclip (~> 4.3)
   pg
-  pundit
   rails (= 4.2.4)
   russian (~> 0.6.0)
   sass-rails (~> 5.0)
