@@ -36,7 +36,7 @@ ActiveAdmin.register Event do
       input :end_date, as: :datepicker
       h2 "Информация"
       input :info_activated, label: "Отобразить вкладку 'Информация'"
-      input :info_text
+      input :info_text, as: :ckeditor, label: false
       input :info_file
       h2 "Задания и ответы"
       input :tasks_activated, label: "Отобразить вкладку 'Задания и ответы'"

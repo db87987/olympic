@@ -18,6 +18,7 @@ gem 'russian', '~> 0.6.0'
 gem "select2-rails"
 gem 'activeadmin-select2', github: 'mfairburn/activeadmin-select2'
 gem 'thin'
+gem 'ckeditor'
 
 group :development, :test do
   gem 'capistrano', '~> 3.3.0'
