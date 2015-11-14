@@ -4,7 +4,6 @@ ActiveAdmin.register FrequentQuestion do
   permit_params :sn, :question, :answer, :published, :user_id
 
   index do
-    id_column
     column :sn
     column :published
     column :question do |resource|

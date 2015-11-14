@@ -5,8 +5,6 @@ ActiveAdmin.register User do
   permit_params :email, :password, :password_confirmation, :role, :department_id, :name
 
   index do
-    selectable_column
-    id_column
     column :email
     column :current_sign_in_at
     column :sign_in_count

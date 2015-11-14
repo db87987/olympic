@@ -7,7 +7,6 @@ ActiveAdmin.register Survey do
                 :show, survey_options_attributes: [:id, :text, :_destroy]
 
   index do
-    id_column
     column :title
     column :question
     column :created_at

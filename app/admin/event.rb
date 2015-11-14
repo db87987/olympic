@@ -11,7 +11,6 @@ ActiveAdmin.register Event do
                                       :organization, :phone1, :phone2, :email, :photo, :_destroy]
 
   index do
-    id_column
     column :title
     column :category
     column "Даты" do |event|

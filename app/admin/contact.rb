@@ -10,7 +10,6 @@ ActiveAdmin.register Contact do
 
 
   index do
-    id_column
     column :lastname
     column :firstname
     column :middlename

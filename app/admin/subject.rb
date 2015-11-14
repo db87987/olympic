@@ -4,7 +4,6 @@ ActiveAdmin.register Subject do
   permit_params :title
 
   index do
-    id_column
     column :title
     actions
   end

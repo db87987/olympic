@@ -4,7 +4,6 @@ ActiveAdmin.register Category do
   permit_params :title, :department_id
 
   index do
-    id_column
     column :title
     column :department
     column :created_at

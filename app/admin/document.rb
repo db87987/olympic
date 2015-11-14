@@ -5,7 +5,6 @@ ActiveAdmin.register Document do
   permit_params :title, :document_type_id, :text, :document_file
 
   index do
-    id_column
     column :title
     column :document_type_id
     column :created_at

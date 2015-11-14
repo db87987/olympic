@@ -5,7 +5,6 @@ ActiveAdmin.register SiteQuestion do
   filter :email
 
   index do
-    id_column
     column :name
     column :email
     column :question do |resource|

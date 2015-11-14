@@ -6,7 +6,6 @@ ActiveAdmin.register Article do
   permit_params :title, :category_id, :date, :text, :image, :user_id
 
   index do
-    id_column
     column :title
     column :category
     column :date

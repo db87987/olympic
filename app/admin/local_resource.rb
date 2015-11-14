@@ -4,7 +4,6 @@ ActiveAdmin.register LocalResource do
   permit_params :title, :url, :image
 
   index do
-    id_column
     column :title
     column :url do |resource|
       link_to resource.url, resource.url
