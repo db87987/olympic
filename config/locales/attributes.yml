@@ -17,7 +17,7 @@ ru:
       event:
         title: Название
         category_id: Категория
-        category: Категория
+        category: Раздел
         subjects: Предметы
         subject_ids: Предметы
         start_date: Дата начала

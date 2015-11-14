@@ -15,6 +15,8 @@ ActiveAdmin.register Event do
     column "Даты" do |event|
       "#{event.start_date} – #{event.end_date}"
     end
+    column :user
+    column :published
     actions
   end
 
