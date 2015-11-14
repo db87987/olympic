@@ -72,3 +72,7 @@ ru:
         from_event?: С мероприятия
       subject:
         title: Название
+      user:
+        created_at: Создан
+        current_sign_in_at: Последний раз заходил
+        sign_in_count: Количество входов
