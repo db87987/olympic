@@ -1,6 +1,7 @@
 ActiveAdmin.register Document do
   config.batch_actions = false
-  config.clear_sidebar_sections!
+  filter :title
+  filter :document_type_id
   permit_params :title, :document_type_id, :text, :document_file
 
   index do

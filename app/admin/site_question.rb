@@ -1,7 +1,8 @@
 ActiveAdmin.register SiteQuestion do
   actions :all, except: [:edit, :update, :create, :new]
   config.batch_actions = false
-  config.clear_sidebar_sections!
+  filter :name
+  filter :email
 
   index do
     id_column

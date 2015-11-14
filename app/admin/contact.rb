@@ -1,6 +1,10 @@
 ActiveAdmin.register Contact do
   config.batch_actions = false
-  config.clear_sidebar_sections!
+  filter :lastname
+  filter :firstname
+  filter :middlename
+  filter :organization
+  filter :phone1
   permit_params :firstname, :lastname, :middlename, :position, :organization,
                 :phone1, :phone2, :email, :photo
 

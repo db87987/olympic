@@ -1,6 +1,8 @@
 ActiveAdmin.register Survey do
   config.batch_actions = false
-  config.clear_sidebar_sections!
+  filter :title
+  filter :start_date
+  filter :end_date
   permit_params :title, :question, :start_date, :end_date,
                 :show, survey_options_attributes: [:id, :text, :_destroy]
 

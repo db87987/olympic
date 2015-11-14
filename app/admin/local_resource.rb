@@ -1,6 +1,6 @@
 ActiveAdmin.register LocalResource do
   config.batch_actions = false
-  config.clear_sidebar_sections!
+  filter :title
   permit_params :title, :url, :image
 
   index do

@@ -1,6 +1,6 @@
 ActiveAdmin.register FrequentQuestion do
   config.batch_actions = false
-  config.clear_sidebar_sections!
+  filter :published
   permit_params :sn, :question, :answer, :published, :user_id
 
   index do

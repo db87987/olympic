@@ -1,6 +1,8 @@
 ActiveAdmin.register Event do
   config.batch_actions = false
-  config.clear_sidebar_sections!
+  filter :title
+  filter :category
+  filter :published
   permit_params :published, :title, :category_id, :start_date, :end_date,
                 :info_activated, :info_text, :info_file,
                 :tasks_activated, :tasks_text, :tasks_file, :user_id,

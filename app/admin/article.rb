@@ -2,6 +2,7 @@ ActiveAdmin.register Article do
   config.batch_actions = false
   filter :title
   filter :date
+  filter :category
   permit_params :title, :category_id, :date, :text, :image, :user_id
 
   index do

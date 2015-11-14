@@ -1,6 +1,6 @@
 ActiveAdmin.register Category do
   config.batch_actions = false
-  config.clear_sidebar_sections!
+  filter :title
   permit_params :title, :department_id
 
   index do
