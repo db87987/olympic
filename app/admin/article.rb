@@ -8,7 +8,7 @@ ActiveAdmin.register Article do
   index do
     id_column
     column :title
-    column :category_id
+    column :category
     column :date
     actions
   end
