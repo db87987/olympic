@@ -70,3 +70,5 @@ ru:
         event_id: Мероприятие
         event: Мероприятие
         from_event?: С мероприятия
+      subject:
+        title: Название

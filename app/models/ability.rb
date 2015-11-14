@@ -17,6 +17,7 @@ class Ability
       can :manage, Survey
       can :manage, SiteQuestion
       can :manage, Contact
+      can :manage, Subject
     elsif user.role == "user"
       can :create, Event
       can :manage, Event, user_id: user.id
