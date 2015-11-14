@@ -17,4 +17,5 @@
 //= require owl.carousel.min
 //= require flickerplate.min
 //= require modernizr-custom-v2.7.1.min
+//= require own.main
 
