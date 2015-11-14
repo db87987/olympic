@@ -7,8 +7,8 @@ ActiveAdmin.register Contact do
 
   index do
     id_column
-    column :firstname
     column :lastname
+    column :firstname
     column :middlename
     column :from_event? do |resource|
       status_tag resource.from_event?
