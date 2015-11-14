@@ -67,16 +67,23 @@ ActiveAdmin.register Event do
       row :user
       row :created_at
       row :subjects do
-        resource.subjects.pluck(:title)
+        resource.subjects.pluck(:title).join(', ')
       end
-      panel "Контакты" do
-        table_for resource.contacts do
-          column :firstname
-          column :lastname
-          column :middlename
-          column :phone1
-          column :phone2
+    end
+    panel 'Информация' do
+      table_for resource do
+        column :info_text do
+          simple_format resource.info_text
         end
+      end
+    end
+    panel "Контакты" do
+      table_for resource.contacts do
+        column :firstname
+        column :lastname
+        column :middlename
+        column :phone1
+        column :phone2
       end
     end
   end
