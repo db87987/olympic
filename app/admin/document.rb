@@ -6,7 +6,7 @@ ActiveAdmin.register Document do
 
   index do
     column :title
-    column :document_type_id
+    column :category
     column :created_at
     actions
   end

@@ -7,6 +7,7 @@ ru:
         category: Тип
         text: Текст
         document_file: Прикрепленный файл
+        created_at: Создан
       local_resource:
         title: Заголовок
         url: Ссылка
