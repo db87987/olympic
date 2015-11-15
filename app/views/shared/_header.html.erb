@@ -1,0 +1,33 @@
+<header>
+  <div class="top">
+    <div class="logo_top">
+      <a href="/"><img src="/images/logo1.png"></a>
+    </div>
+    <div class="header-search">
+      <form action="" class="search" method="post">
+        <input class="input" name="" placeholder="Поиск по сайту" type="search">
+        <input class="submit" name="" type="submit" value="">
+        <button>Найти</button>
+      </form>
+    </div>
+  </div>
+  <div class="middle">
+    <div class="container">
+      <div class="logo">
+        <a href="/"><img src="/images/logo.png"></a>
+      </div>
+      <nav class="menu">
+        <ul>
+          <li><a href="/calendar_page.html">Мероприятия</a></li>
+          <%= content_tag(:li, (link_to "Новости", articles_path), class: ('active' if controller?("articles"))) %>
+          <li><a href="/documents.html">Документы</a> </li>
+          <li><a href="/local.html">Локальные ресурсы</a></li>
+          <li><a href="/anketirovanie.html">Анкетирование</a></li>
+          <li><a href="/faq.html">Вопросы и ответы</a></li>
+          <li><a href="/contact.html">Контакты</a></li>
+        </ul>
+      </nav>
+      <a data-reveal-id="myModal" href="#" class="login">Войти</a>
+    </div>
+  </div>
+</header>

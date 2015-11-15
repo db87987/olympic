@@ -1,0 +1,72 @@
+<%= render 'shared/header' %>
+
+ <div class="container">
+     <div class="breadcrumbs "> <a href="/">Главная</a> / <span>Новости</span></div>
+ </div>
+
+
+ <div class="container">
+     <h1>Новости</h1>
+
+
+     <div class="blog">
+    <% @articles.each do |article| %>
+         <div class="news">
+             <div class="news_prew img">
+                 <p><%= link_to article.title, article, class: 'title' %></p>
+                 <span><%= article.category.try(:title) %>, </span><span class="date"><%= date(article.date, "%d %B") %></span>
+                 <p class="news_desc"><%= truncate(article.text, length: 300) %></p>
+             </div>
+             <div class="news_img"><%= image_tag(article.image.url(:medium)) %></div>
+         </div>
+    <% end %>
+
+
+
+         <div class="more_news">
+             <a class="archive" href="#"></a>
+         </div>
+
+     </div>
+ </div>
+
+
+
+
+
+<%= render 'shared/footer' %>
+
+
+ <div class="reveal-modal" id="myModal">
+     <div class="login_pop">
+         <div class="user_menu">
+             Войти на сайт
+         </div>
+
+         <form method="post">
+             <p>
+                 <input name="login" placeholder="Логин" type="text" value="">
+             </p>
+
+             <p>
+                 <input name="password" placeholder="Пароль" type="text" value="">
+             </p>
+
+             <p class="remember_me">
+                 <input type="checkbox" class="checkbox" id="checkbox10" />
+                 <label for="checkbox10"> Чужой компьютер</label>
+             </p>
+
+             <div class="login-help">
+                 <a href="#">Вспомнить пароль</a>
+             </div>
+             <div style="clear: both;"></div>
+             <p class="submit">
+                 <input name="commit" type="submit" value="Войти">
+             </p>
+             <p class="regist"><a href="/regist.html">Регистрация</a></p>
+         </form>
+     </div>
+
+     <a class="close-reveal-modal">&#215;</a>
+ </div>
