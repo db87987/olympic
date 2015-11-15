@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
   resources :articles, only: [:index, :show]
+  resources :documents, only: [:index]
   root 'home#index'
 end

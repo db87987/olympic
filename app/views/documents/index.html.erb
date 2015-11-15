@@ -1,0 +1,68 @@
+  <%= render 'shared/header' %>
+
+  <div class="container">
+      <div class="breadcrumbs "> <a href="/">Главная</a> / <span>Документы</span></div>
+  </div>
+
+
+  <div class="container">
+      <h1 class="documents">Документы</h1>
+
+      <div class="documents_search">
+          <form action="" class="search" method="post">
+              <input class="input" name="" placeholder="Поиск по документам" type="search">
+              <input class="submit" name="" type="submit" value="">
+              <button>Найти</button>
+          </form>
+      </div>
+
+
+
+
+      <div class="top_content">
+          <div class="documents">
+            <% @documents.each do |document| %>
+
+              <div class="documents_one">
+                  <p><%= link_to document.title, document.document_file.url %> <span>(PDF, 5 МБ)</span></p>
+                  <span><%= document.text %></span>
+              </div>
+
+             <% end %>
+
+          </div>
+
+      </div>
+
+
+      <div class="right_sidebar">
+          <div class="quest_filter">
+              <p class="filter_name">Олимпиады</p>
+              <form id="document_filter_form">
+                  <% @categories.each do |category| %>
+                  <p>
+                      <%= check_box_tag "category_ids[]", category.id.to_s, @category_ids.include?(category.id.to_s), id: category.id, class: 'checkbox' %>
+                      <%= label_tag category.id.to_s, category.title %>
+                  </p>
+                  <% end %>
+
+
+                  <p>
+                      <input type="submit" class="button" id="document_filter_form_reset" value="Сбросить значения фильтра" />
+                  </p>
+              </form>
+
+          </div>
+
+
+      </div>
+
+
+  </div>
+
+
+
+
+
+<%= render 'shared/footer' %>
+<%= render 'shared/login_popup' %>

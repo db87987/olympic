@@ -10,8 +10,6 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-
-
 //= require jquery.reveal
 //= require owl.jquery.min
 //= require owl.carousel.min
@@ -19,3 +17,4 @@
 //= require modernizr-custom-v2.7.1.min
 //= require own.main
 //= require coin-slider.min
+//= require document_filter

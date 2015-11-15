@@ -20,7 +20,7 @@
         <ul>
           <li><a href="/calendar_page.html">Мероприятия</a></li>
           <%= content_tag(:li, (link_to "Новости", articles_path), class: ('active' if controller?("articles"))) %>
-          <li><a href="/documents.html">Документы</a> </li>
+          <%= content_tag(:li, (link_to "Документы", documents_path), class: ('active' if controller?("documents"))) %>
           <li><a href="/local.html">Локальные ресурсы</a></li>
           <li><a href="/anketirovanie.html">Анкетирование</a></li>
           <li><a href="/faq.html">Вопросы и ответы</a></li>

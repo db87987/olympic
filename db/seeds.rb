@@ -16,7 +16,7 @@ co_user = User.create(name: 'co_user', email: 'user@co.com', password: 'password
 admin = User.create(name: 'external', email: 'external@external.com', password: 'password', password_confirmation: 'password', role: 'external')
 puts 'Users created'
 
-#Sections
+#Categories
 Category.destroy_all
 cat1 = Category.create(title: "Каникулы", department_id: ko.id)
 cat2 = Category.create(title: "Общие новости")
@@ -26,6 +26,12 @@ cat5 = Category.create(title: "Олимпиада РСОШ", department_id: ko.i
 cat6 = Category.create(title: "Всероссийская олимпиада", department_id: co.id)
 cat7 = Category.create(title: "Региональная олимпиала", department_id: co.id)
 puts 'Categories created'
+
+#Documents
+Document.destroy_all
+Category.all.each do |category|
+  Document.create(title: category.title, category_id: category.id, text: "Описание к #{category.title}")
+end
 
 #Subjects
 Subject.destroy_all
