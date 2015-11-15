@@ -2,7 +2,7 @@ ActiveAdmin.register Document do
   config.batch_actions = false
   filter :title
   filter :document_type_id
-  permit_params :title, :document_type_id, :text, :document_file
+  permit_params :title, :category_id, :text, :document_file
 
   index do
     column :title
@@ -14,7 +14,7 @@ ActiveAdmin.register Document do
   form do |f|
     inputs do
       input :title
-      input :document_type_id
+      input :category
       input :text
       input :document_file, as: :file
     end
@@ -24,7 +24,7 @@ ActiveAdmin.register Document do
   show do |resource|
     attributes_table do
       row :title
-      row :document_type_id
+      row :category
       row :text do
         simple_format resource.text
       end

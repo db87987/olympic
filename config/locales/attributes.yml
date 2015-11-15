@@ -3,7 +3,8 @@ ru:
     attributes:
       document:
         title: Заголовок
-        document_type_id: Тип
+        category_id: Тип
+        category: Тип
         text: Текст
         document_file: Прикрепленный файл
       local_resource:

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151114155408) do
+ActiveRecord::Schema.define(version: 20151115162853) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,7 +79,6 @@ ActiveRecord::Schema.define(version: 20151114155408) do
 
   create_table "documents", force: :cascade do |t|
     t.string   "title"
-    t.integer  "document_type_id"
     t.text     "text"
     t.string   "document_file_file_name"
     t.string   "document_file_content_type"
@@ -87,6 +86,7 @@ ActiveRecord::Schema.define(version: 20151114155408) do
     t.datetime "document_file_updated_at"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.integer  "category_id"
   end
 
   create_table "events", force: :cascade do |t|
