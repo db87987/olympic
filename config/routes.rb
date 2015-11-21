@@ -5,5 +5,6 @@ Rails.application.routes.draw do
 
   resources :articles, only: [:index, :show]
   resources :documents, only: [:index]
+  resources :local_resources, only: [:index]
   root 'home#index'
 end

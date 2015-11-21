@@ -1,0 +1,17 @@
+<%= render 'shared/header' %>
+<div class="container">
+    <div class="breadcrumbs "> <a href="/">Главная</a> / <span>Локальные ресурсы</span></div>
+</div>
+<div class="container">
+    <h1>Локальные ресурсы</h1>
+    <% @local_resources.each do |resource| %>
+      <div class="local_resours">
+          <div class="local_img">
+              <%= image_tag resource.image.url(:icon) %>
+          </div>
+          <div class="local_name"><%= resource.title %></div>
+      </div>
+    <% end %>
+</div>
+<%= render 'shared/footer' %>
+<%= render 'shared/login_popup' %>
