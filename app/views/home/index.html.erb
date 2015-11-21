@@ -1312,55 +1312,9 @@
             </div>
         </div>
 
+        <%= render 'shared/footer' %>
+        <%= render 'shared/login_popup' %>
 
-
-
-
-        <footer>
-            <div class="container">
-                <div class="copyright_year ">© 2015 </div>
-
-                <div class="copyright "> Единый информационный портал о научной-исследоватльской деятельности и олимпиадном движении Санкт-Петербурга</div>
-                <div class="footer_links "><a href="/faq.html">Вопросы и ответы</a><a href="/contact.html">Контакты</a><a data-reveal-id="myModal" href="#">Войти в личный кабинет</a></div>
-
-
-            </div>
-        </footer>
-
-
-        <div class="reveal-modal" id="myModal">
-            <div class="login_pop">
-                <div class="user_menu">
-                    Войти на сайт
-                </div>
-
-                <form method="post">
-                    <p>
-                        <input name="login" placeholder="Логин" type="text" value="">
-                    </p>
-
-                    <p>
-                        <input name="password" placeholder="Пароль" type="text" value="">
-                    </p>
-
-                    <p class="remember_me">
-                        <input type="checkbox" class="checkbox" id="checkbox10" />
-                        <label for="checkbox10"> Чужой компьютер</label>
-                    </p>
-
-                    <div class="login-help">
-                        <a href="#">Вспомнить пароль</a>
-                    </div>
-                    <div style="clear: both;"></div>
-                    <p class="submit">
-                        <input name="commit" type="submit" value="Войти">
-                    </p>
-                    <p class="regist"><a href="/regist.html">Регистрация</a></p>
-                </form>
-            </div>
-
-            <a class="close-reveal-modal">&#215;</a>
-        </div>
         <script>
             $(document).ready(function() {
 

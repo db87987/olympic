@@ -4,13 +4,13 @@
             Войти на сайт
         </div>
 
-        <form method="post">
+        <%= form_for('user', url: user_session_path) do |f| %>
             <p>
-                <input name="login" placeholder="Логин" type="text" value="">
+                <input name="user[email]" placeholder="Логин" type="text" value="">
             </p>
 
             <p>
-                <input name="password" placeholder="Пароль" type="text" value="">
+                <input name="user[password]" placeholder="Пароль" type="password" value="">
             </p>
 
             <p class="remember_me">
@@ -26,7 +26,7 @@
                 <input name="commit" type="submit" value="Войти">
             </p>
             <p class="regist"><a href="/regist.html">Регистрация</a></p>
-        </form>
+        <% end %>
     </div>
 
     <a class="close-reveal-modal">&#215;</a>
