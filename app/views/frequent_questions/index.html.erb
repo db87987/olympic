@@ -1,0 +1,51 @@
+<%= render 'shared/header' %>
+
+<div class="container">
+    <div class="breadcrumbs "> <a href="/">Главная</a> / <span>Вопросы и ответы</span></div>
+</div>
+
+
+<div class="container">
+    <h1>Вопросы и ответы</h1>
+
+    <div class="virtual">
+        <h1>Виртуальный помощник</h1>
+
+        <form action="" class="search" method="post">
+            <input class="input" name="" placeholder="Куда подать документы?" type="search">
+            <input class="submit" name="" type="submit" value="">
+            <button>Узнать</button>
+        </form>
+    </div>
+
+    <div class="vote_button"><a href="#">Задать вопрос</a></div>
+
+    <div class="faq">
+      <% @frequent_questions.each do |question| %>
+        <div class="spoiler close">
+            <h2><%= question.question %></h2>
+            <div class="block">
+                <%= question.answer %>
+            </div>
+        </div>
+      <% end %>
+    </div>
+
+
+</div>
+
+<%= render 'shared/footer' %>
+<%= render 'shared/login_popup' %>
+<script>
+    $(document).ready(function() {
+
+
+        //new spoiler 2013
+        $(".spoiler .block").show();
+        $(".close .block").hide();
+        $(".spoiler h2").click(function() {
+            $(this).toggleClass("bgcolor").next().slideToggle("medium");
+        });
+        //end new spoiler 2013
+    });
+</script>

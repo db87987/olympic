@@ -1,5 +1,6 @@
 ActiveAdmin.register FrequentQuestion do
   config.batch_actions = false
+  config.sort_order = 'sn_asc'
   filter :published
   permit_params :sn, :question, :answer, :published, :user_id
 

@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   resources :local_resources, only: [:index]
   resources :surveys, only: [:index, :show]
   resources :contacts, only: [:index]
+  resources :frequent_questions, only: [:index]
   root 'home#index'
 end
