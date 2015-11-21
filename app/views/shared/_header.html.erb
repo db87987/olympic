@@ -22,7 +22,7 @@
           <%= content_tag(:li, (link_to "Новости", articles_path), class: ('active' if controller?("articles"))) %>
           <%= content_tag(:li, (link_to "Документы", documents_path), class: ('active' if controller?("documents"))) %>
           <%= content_tag(:li, (link_to "Локальные ресурсы", local_resources_path), class: ('active' if controller?("local_resources"))) %>
-          <li><a href="/anketirovanie.html">Анкетирование</a></li>
+          <%= content_tag(:li, (link_to "Анкетирование", surveys_path), class: ('active' if controller?("surveys"))) %>
           <li><a href="/faq.html">Вопросы и ответы</a></li>
           <li><a href="/contact.html">Контакты</a></li>
         </ul>
