@@ -1,6 +1,8 @@
 module ApplicationHelper
   def date(date, format)
-    Russian::strftime(date, format)
+    if date && format
+      Russian::strftime(date, format)
+    end
   end
 
   def controller?(*controller)

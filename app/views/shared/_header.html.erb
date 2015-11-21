@@ -24,7 +24,7 @@
           <%= content_tag(:li, (link_to "Локальные ресурсы", local_resources_path), class: ('active' if controller?("local_resources"))) %>
           <%= content_tag(:li, (link_to "Анкетирование", surveys_path), class: ('active' if controller?("surveys"))) %>
           <li><a href="/faq.html">Вопросы и ответы</a></li>
-          <li><a href="/contact.html">Контакты</a></li>
+          <%= content_tag(:li, (link_to "Контакты", contacts_path), class: ('active' if controller?("contacts"))) %>
         </ul>
       </nav>
       <a data-reveal-id="myModal" href="#" class="login">Войти</a>

@@ -1,0 +1,42 @@
+<%= render 'shared/header' %>
+
+ <div class="container">
+     <div class="breadcrumbs "> <a href="/">Главная</a> / <span>Документы</span></div>
+ </div>
+
+ <div class="container">
+     <h1 class="documents">Контакты</h1>
+
+     <div class="documents_search">
+         <form action="" class="search" method="post">
+             <input class="input" name="" placeholder="Поиск по олимпиадам" type="search">
+             <input class="submit" name="" type="submit" value="">
+             <button>Найти</button>
+         </form>
+     </div>
+
+     <div class="top_content">
+         <div class="contacts">
+           <% @contacts.each do |contact| %>
+             <div class="contacts_teacher">
+                 <div class="contacts_teacher_img"><%= image_tag contact.photo.url(:small) %></div>
+                 <div class="contacts_teacher_info">
+                     <p class="contacts_teacher_name"><%= contact.firstname %></p>
+                     <p class="contacts_teacher_work"><%= contact.organization %>
+                         <br> <%= contact.position %></p>
+                 </div>
+                 <p class="contacts_teacher_fone"> <%= contact.phone1 %>
+                     <br><%= contact.phone2 %></p>
+                 <% if contact.from_event? %>
+                   <div class="contacts_teacher_date"> Предмет: <b><%= contact.event.subjects.first.try(:title) %></b>
+                       <p>Дата проведения: <%= date(contact.event.try(:start_date), "%d %B %Y") %></p>
+                   </div>
+                <% end %>
+             </div>
+           <% end %>
+         </div>
+     </div>
+
+ </div>
+<%= render 'shared/footer' %>
+<%= render 'shared/login_popup' %>
