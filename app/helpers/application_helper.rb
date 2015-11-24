@@ -16,4 +16,12 @@ module ApplicationHelper
   def survery_options_plural(amount)
     "#{amount} #{Russian.p(amount, "вопрос", "вопроса", "вопросов")}"
   end
+
+  def years_list
+    %w(2013 2014 2015 2016)
+  end
+
+  def month_list
+    %w(Январь Ферваль Март Апрель Май Июнь Июль Август Сентябрь Октябрь Ноябрь Декабрь)
+  end
 end

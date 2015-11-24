@@ -10,4 +10,5 @@ class Event < ActiveRecord::Base
   belongs_to :category
   has_many :contacts, :dependent => :destroy
   accepts_nested_attributes_for :contacts, :allow_destroy => true
+  scope :published, -> { where(published: true) }
 end

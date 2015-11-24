@@ -1,0 +1,253 @@
+<%= render 'shared/header' %>
+
+ <div class="container">
+     <div class="breadcrumbs "> <a href="/">Главная</a> / <span>Мероприятия</span></div>
+ </div>
+
+
+ <div class="container">
+     <h1 class="calendar">Мероприятия</h1>
+     <ul class="calendar_year">
+        <% years_list.each do |year| %>
+          <%= content_tag(:li, (link_to year, params.merge({:year => year})), class: ('active' if year==Time.now.year.to_s)) %>
+        <% end %>
+     </ul>
+
+     <ul class="calendar_moon">
+        <% month_list.to_enum.with_index(1).each do |month, i| %>
+          <%= content_tag(:li, (link_to month, params.merge({:month => i})), class: ('active' if i==Time.now.month)) %>
+        <% end %>
+     </ul>
+
+
+
+
+     <div class="top_content">
+      <%  @events_by_month.each do |month, events| %>
+         <div class="calendar_content today">
+             <h2><%= date(month, "%B") %></h2>
+
+            <div class="calendar_day">
+              <% events.group_by(&:start_date).each do |date, events|  %>
+                <div class="calendar_date">
+                  <p><%= date(date, "%d %B") %></p>
+                </div>
+
+                <div class="calendar_name">
+                  <% events.each do |event| %>
+                    <p><%= link_to event.title %></p>
+                    <span>Длительность: <%= date(event.start_date, "%d %B") %></span>
+                  <% end %>
+                </div>
+
+                <div class="calendar_category">
+                  <p>Рисование</p>
+                  <p>Физика</p>
+                  <p>ОБЖ</p>
+                  <p>Рисование</p>
+                </div>
+              <% end %>
+            </div>
+
+
+         </div>
+
+         <hr>
+      <% end %>
+<!--
+         <div class="calendar_content today">
+             <h2 class="today">Февраль</h2>
+             <div class="calendar_day">
+                 <div class="calendar_date">
+                     <p>1 февраля</p>
+                 </div>
+                 <div class="calendar_name">
+
+                     <p><a href="#">Московская физическая олимпиада</a></p>
+                     <span>Класс: 9-11 класс</span>
+                     <br>
+                     <span>Длительность: 1 день</span>
+
+                     <p><a href="#">Осенний Тур Международного Турнира Городов</a></p>
+                     <span>Класс: 5 класс</span>
+                     <br>
+                     <span>Длительность: 1 день</span>
+                 </div>
+                 <div class="calendar_category">
+                     <p>Физика</p>
+                     <p>География</p>
+                 </div>
+             </div>
+
+
+             <div class="calendar_day today">
+                 <div class="calendar_date">
+                     <p>2 февраля</p>
+                     <span>Сегодня</span>
+                 </div>
+                 <div class="calendar_name">
+                     <p><a href="#">Строгановская олимпиада по рисунку</a></p>
+                     <span>Класс: 9-11 класс</span>
+                     <br>
+                     <span>Длительность: 1 день</span>
+                     <p><a href="#">Московская физическая олимпиада</a></p>
+                     <span>Класс: 9-11 класс</span>
+                     <br>
+                     <span>Длительность: 1 день</span>
+                     <p><a href="#">Олимпиада «Юные Таланты»</a></p>
+                     <span>Класс: 5 класс</span>
+                     <br>
+                     <span>Длительность: 1 день</span>
+                     <p><a href="#">Строгановская олимпиада по рисунку</a></p>
+                     <span>Класс: 5 класс</span>
+                     <br>
+                     <span>Длительность: 1 день</span>
+                 </div>
+
+                 <div class="calendar_category">
+                     <p>Рисование</p>
+                     <p>Физика</p>
+                     <p>ОБЖ</p>
+                     <p>Рисование</p>
+                 </div>
+             </div>
+
+
+
+
+             <div class="calendar_day green">
+                 <div class="calendar_date">
+                     <p>8 февраля</p>
+                 </div>
+                 <div class="calendar_name">
+                     <p><a href="#">День учителя </a></p>
+
+                 </div>
+                 <div class="calendar_category one">
+                     <p>События</p>
+                 </div>
+             </div>
+
+             <div class="calendar_day blue">
+                 <div class="calendar_date">
+                     <p>10 февраля</p>
+                 </div>
+                 <div class="calendar_name">
+                     <p><a href="#">Весенние каникулы  </a></p>
+                     <span>Длительность: 10 – 20 февраля</span>
+
+                 </div>
+                 <div class="calendar_category one">
+                     <p>События</p>
+                 </div>
+             </div>
+
+             <div class="calendar_day">
+                 <div class="calendar_date">
+                     <p>21 февраля</p>
+                 </div>
+                 <div class="calendar_name">
+                     <p><a href="#">Олимпиада Школьников  «Шаг В Будущее» </a></p>
+                     <span>Класс: 5 класс</span>
+                     <p><a href="#">Строгановская олимпиада по рисунку</a></p>
+                     <span>Класс: 5 класс</span>
+                 </div>
+                 <div class="calendar_category nodate">
+                     <p>Кибернетика</p>
+                     <p>Академический рисунок</p>
+                 </div>
+             </div>
+
+             <div class="calendar_day">
+                 <div class="calendar_date">
+                     <p>21 февраля</p>
+                 </div>
+                 <div class="calendar_name">
+                     <p><a href="#">Олимпиада Школьников  «Шаг В Будущее» </a></p>
+                     <span>Класс: 5 класс</span>
+                     <p><a href="#">Строгановская олимпиада по рисунку</a></p>
+                     <span>Класс: 5 класс</span>
+                     <p><a href="#">Строгановская олимпиада по рисунку</a></p>
+                     <span>Класс: 5 класс</span>
+                 </div>
+                 <div class="calendar_category nodate">
+                     <p>Кибернетика</p>
+                     <p>Академический рисунок</p>
+                     <p>Академический рисунок</p>
+                 </div>
+             </div>
+         </div>
+
+
+         <hr>
+-->
+
+
+     </div>
+
+<!--
+     <div class="right_sidebar">
+         <div class="quest_filter">
+             <p class="filter_name">Олимпиады</p>
+             <form>
+                 <p>
+                     <input type="checkbox" class="checkbox" id="checkbox" />
+                     <label for="checkbox"> Всероссийские олимпиады</label>
+                 </p>
+                 <p>
+                     <input type="checkbox" class="checkbox" id="checkbox1" />
+                     <label for="checkbox1"> Региональные олимпиады</label>
+                 </p>
+                 <p>
+                     <input type="checkbox" class="checkbox" id="checkbox2" />
+                     <label for="checkbox2"> Олимпиады РСОШ</label>
+                 </p>
+                 <p>
+                     <input type="checkbox" class="checkbox" id="checkbox3" />
+                     <label for="checkbox3"> Научная деятельность</label>
+                 </p>
+
+
+             </form>
+
+             <p class="filter_name two">Предметы</p>
+             <form>
+                 <p>
+                     <input type="checkbox" class="checkbox" id="checkbox4" />
+                     <label for="checkbox4"> Математика</label>
+                 </p>
+                 <p>
+                     <input type="checkbox" class="checkbox" id="checkbox5" />
+                     <label for="checkbox5"> Русский язык</label>
+                 </p>
+                 <p>
+                     <input type="checkbox" class="checkbox" id="checkbox6" />
+                     <label for="checkbox6"> Литература</label>
+                 </p>
+                 <p>
+                     <input type="checkbox" class="checkbox" id="checkbox7" />
+                     <label for="checkbox7"> География</label>
+                 </p>
+                 <p>
+                     <input type="checkbox" class="checkbox" id="checkbox8" />
+                     <label for="checkbox8"> История России XX века</label>
+                 </p>
+
+
+
+             </form>
+             <p>
+                 <input type="submit" class="button" value="Сбросить значения фильтра" />
+             </p>
+
+         </div>
+
+
+     </div>
+
+-->
+
+
+ </div>
+<%= render 'shared/footer' %>
+<%= render 'shared/login_popup' %>
