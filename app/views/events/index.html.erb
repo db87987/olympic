@@ -24,7 +24,7 @@
 
      <div class="top_content">
       <%  @events_by_month.each do |month, events| %>
-         <div class="calendar_content today">
+         <div class="<%= calendar_content_class(month) %>">
              <h2><%= date(month, "%B") %></h2>
 
             <div class="calendar_day">
@@ -41,9 +41,6 @@
                 </div>
 
                 <div class="calendar_category">
-                  <p>Рисование</p>
-                  <p>Физика</p>
-                  <p>ОБЖ</p>
                   <p>Рисование</p>
                 </div>
               <% end %>

@@ -24,4 +24,15 @@ module ApplicationHelper
   def month_list
     %w(Январь Ферваль Март Апрель Май Июнь Июль Август Сентябрь Октябрь Ноябрь Декабрь)
   end
+
+  def calendar_content_class(date)
+    if date.month >= Time.now.month
+      "calendar_content today"
+    else
+      "calendar_content"
+    end
+  end
+
+  def calendar_day_class(date)
+  end
 end

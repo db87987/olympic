@@ -47,12 +47,21 @@ Event.create(title: "Событие КО", category_id: Category.pluck(:id).samp
 Event.create(title: "Событие КО", category_id: Category.pluck(:id).sample, start_date: (1..100).to_a.sample.days.ago, end_date: (10..100).to_a.sample.days.from_now, published: false, user_id: ko_user2.id)
 Event.create(title: "Событие ЦО", category_id: Category.pluck(:id).sample, start_date: (1..100).to_a.sample.days.ago, end_date: (10..100).to_a.sample.days.from_now, published: false, user_id: co_user.id)
 
-10.times do
+3.times do
   Event.create(title: Faker::Lorem.sentence,
                subject_ids: Subject.pluck(:id).sample(3),
                category_id: Category.pluck(:id).sample,
                start_date: (1..100).to_a.sample.days.ago,
                end_date: (10..100).to_a.sample.days.from_now,
+               published: true,
+               user_id: co_user.id)
+end
+4.times do
+  Event.create(title: Faker::Lorem.sentence,
+               subject_ids: Subject.pluck(:id).sample(3),
+               category_id: Category.pluck(:id).sample,
+               start_date: (1..10).to_a.sample.days.from_now,
+               end_date: (11..100).to_a.sample.days.from_now,
                published: true,
                user_id: co_user.id)
 end
