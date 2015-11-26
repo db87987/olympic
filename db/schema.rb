@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151115162853) do
+ActiveRecord::Schema.define(version: 20151126143050) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,28 +94,27 @@ ActiveRecord::Schema.define(version: 20151115162853) do
     t.integer  "category_id"
     t.date     "start_date"
     t.date     "end_date"
-    t.boolean  "info_activated",           default: false
+    t.boolean  "info_activated",   default: false
     t.text     "info_text"
-    t.string   "info_file_file_name"
-    t.string   "info_file_content_type"
-    t.integer  "info_file_file_size"
-    t.datetime "info_file_updated_at"
-    t.boolean  "tasks_activated",          default: false
+    t.boolean  "tasks_activated",  default: false
     t.text     "tasks_text"
-    t.string   "tasks_file_file_name"
-    t.string   "tasks_file_content_type"
-    t.integer  "tasks_file_file_size"
-    t.datetime "tasks_file_updated_at"
-    t.boolean  "events_activated",         default: false
+    t.boolean  "events_activated", default: false
     t.text     "events_text"
-    t.string   "events_file_file_name"
-    t.string   "events_file_content_type"
-    t.integer  "events_file_file_size"
-    t.datetime "events_file_updated_at"
-    t.boolean  "published",                default: false
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.boolean  "published",        default: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.integer  "user_id"
+  end
+
+  create_table "events_files", force: :cascade do |t|
+    t.string   "title"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.integer  "event_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "events_subjects", force: :cascade do |t|
@@ -131,6 +130,17 @@ ActiveRecord::Schema.define(version: 20151115162853) do
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.integer  "user_id"
+  end
+
+  create_table "info_files", force: :cascade do |t|
+    t.string   "title"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.integer  "event_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "local_resources", force: :cascade do |t|
@@ -173,6 +183,17 @@ ActiveRecord::Schema.define(version: 20151115162853) do
     t.boolean  "show"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "tasks_files", force: :cascade do |t|
+    t.string   "title"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.integer  "event_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "users", force: :cascade do |t|

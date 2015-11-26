@@ -4,9 +4,12 @@ ActiveAdmin.register Event do
   filter :category
   filter :published
   permit_params :published, :title, :category_id, :start_date, :end_date,
-                :info_activated, :info_text, :info_file,
-                :tasks_activated, :tasks_text, :tasks_file, :user_id,
-                :events_activated, :events_text, :events_file, subject_ids: [],
+                :info_activated, :info_text,
+                :tasks_activated, :tasks_text, :user_id,
+                :events_activated, :events_text, subject_ids: [],
+                events_files_attributes: [:id, :title, :file, :_destroy],
+                tasks_files_attributes: [:id, :title, :file, :_destroy],
+                info_files_attributes: [:id, :title, :file, :_destroy],
                 contacts_attributes: [:id, :firstname, :lastname, :middlename, :position,
                                       :organization, :phone1, :phone2, :email, :photo, :_destroy]
 
@@ -37,15 +40,24 @@ ActiveAdmin.register Event do
       h2 "Информация"
       input :info_activated, label: "Отобразить вкладку 'Информация'"
       input :info_text, as: :ckeditor, label: false
-      input :info_file
+      f.has_many :info_files, heading: 'Файлы', allow_destroy: true, new_record: true do |a|
+        a.input :title
+        a.input :file
+      end
       h2 "Задания и ответы"
       input :tasks_activated, label: "Отобразить вкладку 'Задания и ответы'"
-      input :tasks_text
-      input :tasks_file
+      input :tasks_text, as: :ckeditor, label: false
+      f.has_many :tasks_files, heading: 'Файлы', allow_destroy: true, new_record: true do |a|
+        a.input :title
+        a.input :file
+      end
       h2 "События и итоги"
       input :events_activated, label: "Отобразить вкладку 'События и итоги'"
-      input :events_text
-      input :events_file
+      input :events_text, as: :ckeditor, label: false
+      f.has_many :events_files, heading: 'Файлы', allow_destroy: true, new_record: true do |a|
+        a.input :title
+        a.input :file
+      end
       f.has_many :contacts, heading: 'Контакты', allow_destroy: true, new_record: true do |a|
         a.input :firstname
         a.input :lastname

@@ -6,4 +6,8 @@ class Contact < ActiveRecord::Base
   def from_event?
     self.event_id.present?
   end
+
+  def full_name
+    "#{lastname} #{firstname} #{middlename}"
+  end
 end

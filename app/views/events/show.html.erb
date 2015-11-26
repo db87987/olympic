@@ -1,0 +1,94 @@
+ <%= render 'shared/header' %>
+
+    <div class="container">
+        <div class="breadcrumbs "> <a href="/">Главная</a> / <a href="/">Мероприятия</a> / <span>Региональная олимпиада</span></div>
+    </div>
+
+
+    <div class="container">
+        <div class="olimpic">
+
+            <div class="top_content">
+                <h1><%= @event.title %></h1>
+                <p class="upp_head">
+                  <%= date(@event.start_date, "%d %B") %> — <%= date(@event.end_date, "%d %B %Y") %>,
+                  <%= @event.category.title %>
+                </p>
+
+
+
+                <div id="tab_block">
+                    <ul id="tabs" class="cont">
+                        <li id="tab1" class="tab active" onclick="funcTab(1);">Информация</li>
+                        <li id="tab2" class="tab" onclick="funcTab(2);">Задания и ответ</li>
+                        <li id="tab3" class="tab" onclick="funcTab(3);">События и итоги</li>
+                    </ul>
+                    <div id="tabs_content">
+
+                        <div class="tab_content active" id="tab_content1">
+                            <%= simple_format @event.info_text %>
+                            <h3>Порядок проведения олимпиады</h3>
+                            <% @event.info_files.each do |document| %>
+                              <p class="documents_one"><%= link_to document.title, document.file.url %>
+                                <span> (PDF. <%= number_to_human_size(document.file.size, precision: 0) %>)</span>
+                              </p>
+                            <% end %>
+                        </div>
+
+                        <div class="tab_content" id="tab_content2">
+                          <%= simple_format @event.tasks_text %>
+                          <% @event.tasks_files.each do |document| %>
+                            <p class="documents_one"><%= link_to document.title, document.file.url %>
+                              <span> (PDF. <%= number_to_human_size(document.file.size, precision: 0) %>)</span>
+                            </p>
+                          <% end %>
+                        </div>
+
+                        <div class="tab_content" id="tab_content3">
+                          <%= simple_format @event.events_text %>
+                          <% @event.events_files.each do |document| %>
+                            <p class="documents_one"><%= link_to document.title, document.file.url %>
+                              <span> (PDF. <%= number_to_human_size(document.file.size, precision: 0) %>)</span>
+                            </p>
+                          <% end %>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+
+            <div class="right_sidebar">
+
+                <div class="right_contacts">
+                    <h3>Контакты</h3>
+
+                    <% @event.contacts.each do |contact| %>
+                      <div class="teacher">
+                          <div class="teacher_img"><%= image_tag contact.photo.url(:small) %></div>
+                          <p class="teacher_name">
+                            <%= contact.lastname %> <%= contact.firstname %><br>
+                            <%= contact.middlename %>
+                          </p>
+                          <p class="teacher_work"><%= contact.position %></p>
+                          <p class="teacher_fone"><%= contact.phone1 %></p>
+                          <p class="teacher_fone"><%= contact.phone2 %></p>
+                      </div>
+
+
+                    <% end %>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+<%= render 'shared/footer' %>
+<%= render 'shared/login_popup' %>

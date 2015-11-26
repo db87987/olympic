@@ -78,3 +78,12 @@ ru:
         created_at: Создан
         current_sign_in_at: Последний раз заходил
         sign_in_count: Количество входов
+      events_file:
+        title: Название
+        file: Документ
+      tasks_file:
+        title: Название
+        file: Документ
+      info_file:
+        title: Название
+        file: Документ

@@ -36,7 +36,7 @@
 
                 <div class="calendar_name">
                   <% events.each do |event| %>
-                    <p><%= link_to event.title %></p>
+                    <p><%= link_to event.title, event %></p>
                     <span>Длительность: <%= date(event.start_date, "%d %B") %></span>
                   <% end %>
                 </div>

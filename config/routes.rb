@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   resources :surveys, only: [:index, :show]
   resources :contacts, only: [:index]
   resources :frequent_questions, only: [:index]
-  resources :events, only: [:index]
+  resources :events, only: [:index, :show]
   root 'home#index'
 end

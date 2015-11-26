@@ -61,3 +61,18 @@ ru:
         few: Предметы
         many: Предметы
         other: Предметы
+      info_file:
+        one: Файл
+        few: Файлы
+        many: Файлы
+        other: Файлы
+      tasks_file:
+        one: Файл
+        few: Файлы
+        many: Файлы
+        other: Файлы
+      events_file:
+        one: Файл
+        few: Файлы
+        many: Файлы
+        other: Файлы
