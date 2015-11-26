@@ -11,6 +11,9 @@
 // about supported directives.
 //
 //= require jquery.reveal
+
+//= require jquery
+//= require jquery_ujs
 //= require owl.jquery.min
 //= require owl.carousel.min
 //= require flickerplate.min

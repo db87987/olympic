@@ -40,4 +40,12 @@ module ApplicationHelper
       "calendar_day"
     end
   end
+
+  def home_calendar_today_cell(date)
+    if date == Date.today
+      "today"
+    else
+      "evry"
+    end
+  end
 end

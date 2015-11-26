@@ -1,0 +1,24 @@
+<% (1..12).to_a.each do |n| %>
+  <div class="tab_content <%= 'active' if n == 1 %>" id="tab_content<%= n %>">
+        <% @events.month(n).limit(8).each_slice(2) do |events| %>
+          <span class="calendar_news">
+            <% events.each do |event| %>
+              <p class="calendar_one_news">
+                <span class="<%= home_calendar_today_cell(event.start_date) %>"><%= date(event.start_date, "%d %B") %></span>
+                <br>
+                <%= link_to truncate(event.title, length: 30), event %>
+                <br>
+                <a class="category" href="#"><%= event.subjects.first.try(:title) %></a>
+                <br>
+                <span>Длительность: с <%= date(event.start_date, '%d') %>-<%= date(event.end_date, '%d %B') %></span>
+              </p>
+            <% end %>
+          </span>
+        <% end %>
+        <!--
+        <a href="#" class="more_calendar">
+            <img src="/images/dots.png">
+        </a>
+        -->
+  </div>
+<% end %>

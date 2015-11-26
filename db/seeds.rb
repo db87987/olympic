@@ -47,7 +47,7 @@ Event.create(title: "Событие КО", category_id: Category.pluck(:id).samp
 Event.create(title: "Событие КО", category_id: Category.pluck(:id).sample, start_date: (1..100).to_a.sample.days.ago, end_date: (10..100).to_a.sample.days.from_now, published: false, user_id: ko_user2.id)
 Event.create(title: "Событие ЦО", category_id: Category.pluck(:id).sample, start_date: (1..100).to_a.sample.days.ago, end_date: (10..100).to_a.sample.days.from_now, published: false, user_id: co_user.id)
 
-3.times do
+10.times do
   Event.create(title: Faker::Lorem.sentence,
                subject_ids: Subject.pluck(:id).sample(3),
                category_id: Category.pluck(:id).sample,
@@ -56,11 +56,21 @@ Event.create(title: "Событие ЦО", category_id: Category.pluck(:id).samp
                published: true,
                user_id: co_user.id)
 end
-4.times do
+10.times do
   Event.create(title: Faker::Lorem.sentence,
                subject_ids: Subject.pluck(:id).sample(3),
                category_id: Category.pluck(:id).sample,
                start_date: (1..10).to_a.sample.days.from_now,
+               end_date: (11..100).to_a.sample.days.from_now,
+               published: true,
+               user_id: co_user.id)
+end
+
+9.times do
+  Event.create(title: Faker::Lorem.sentence,
+               subject_ids: Subject.pluck(:id).sample(3),
+               category_id: Category.pluck(:id).sample,
+               start_date: '01.01.2015',
                end_date: (11..100).to_a.sample.days.from_now,
                published: true,
                user_id: co_user.id)
@@ -78,10 +88,11 @@ FrequentQuestion.destroy_all
 FrequentQuestion.create(sn: 1, question: "Каким мылом лучше мыться", answer: "Лучше всего использовать дегтярное мыло", published: true)
 FrequentQuestion.create(sn: 2, question: "Какой цвет самый красивый?", answer: "Светло синий", published: true)
 FrequentQuestion.create(sn: 3, question: "Где лучшие тусовки?", answer: "У нас в клубе")
+puts 'Frequent Questions created'
 
 #Contacts
 Contact.destroy_all
-5.times do
+4.times do
   Contact.create(firstname: Faker::Name.first_name,
                           lastname: Faker::Name.last_name,
                           middlename: Faker::Name.first_name,
@@ -104,3 +115,4 @@ end
                           photo: File.new("#{Rails.root}/public/images/teach#{rand(1..3)}.png"),
                           event_id: Event.pluck(:id).sample)
 end
+puts 'Contacts created'
