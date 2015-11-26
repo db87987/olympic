@@ -27,8 +27,9 @@
          <div class="<%= calendar_content_class(month) %>">
              <h2><%= date(month, "%B") %></h2>
 
-            <div class="calendar_day">
-              <% events.group_by(&:start_date).each do |date, events|  %>
+            <% events.group_by(&:start_date).each do |date, events|  %>
+            <div class="<%= calendar_day_class(date) %>">
+
                 <div class="calendar_date">
                   <p><%= date(date, "%d %B") %></p>
                 </div>
@@ -41,10 +42,15 @@
                 </div>
 
                 <div class="calendar_category">
-                  <p>Рисование</p>
+                  <% events.each do |event| %>
+                    <% event.subjects.each do |subject| %>
+                    <p><%= subject.title %></p>
+                    <% end %>
+                  <% end %>
                 </div>
-              <% end %>
+
             </div>
+          <% end %>
 
 
          </div>

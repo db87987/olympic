@@ -34,5 +34,10 @@ module ApplicationHelper
   end
 
   def calendar_day_class(date)
+    if date == Date.today
+      "calendar_day today"
+    else
+      "calendar_day"
+    end
   end
 end
