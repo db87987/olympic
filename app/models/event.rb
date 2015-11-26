@@ -11,4 +11,6 @@ class Event < ActiveRecord::Base
   has_many :contacts, :dependent => :destroy
   accepts_nested_attributes_for :contacts, :allow_destroy => true
   scope :published, -> { where(published: true) }
+  scope :year, -> (year) { where('extract(year from start_date) = ?', year) }
+  scope :month, -> (month) { where('extract(month from start_date) = ?', month) }
 end
