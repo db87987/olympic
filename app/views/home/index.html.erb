@@ -63,10 +63,14 @@
                     </div>
                     <ul id="nav">
                         <li>
-                            <%= link_to "2015 год", params.merge({:year => 2015}), remote: true  %>
+                            <% if @year %>
+                              <%= link_to "#{@year} год", params.merge({:year => @year}) %>
+                            <% else %>
+                              <%= link_to "2015 год", params.merge({:year => 2015}) %>
+                            <% end %>
                             <ul>
                                 <% years_list.each do |year| %>
-                                  <%= content_tag(:li, (link_to "#{year} год", params.merge({:year => year}), remote: true)) %>
+                                  <%= content_tag(:li, (link_to "#{year} год", params.merge({:year => year}))) %>
                                 <% end %>
                             </ul>
                         </li>

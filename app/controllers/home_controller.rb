@@ -8,6 +8,7 @@ class HomeController < ApplicationController
     @documents = Document.limit(4)
     @surveys = Survey.limit(4)
     @articles = Article.limit(4)
+    @year = params[:year]
 
     respond_to do |format|
       format.html
