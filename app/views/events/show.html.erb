@@ -12,7 +12,7 @@
                 <h1><%= @event.title %></h1>
                 <p class="upp_head">
                   <%= date(@event.start_date, "%d %B") %> — <%= date(@event.end_date, "%d %B %Y") %>,
-                  <%= @event.category.title %>
+                  <%= @event.category.try(:title) %>
                 </p>
 
 
@@ -26,7 +26,7 @@
                     <div id="tabs_content">
 
                         <div class="tab_content active" id="tab_content1">
-                            <%= simple_format @event.info_text %>
+                            <%= simple_format @event.info_text if @event.info_text %>
                             <h3>Порядок проведения олимпиады</h3>
                             <% @event.info_files.each do |document| %>
                               <p class="documents_one"><%= link_to document.title, document.file.url %>
@@ -36,7 +36,7 @@
                         </div>
 
                         <div class="tab_content" id="tab_content2">
-                          <%= simple_format @event.tasks_text %>
+                          <%= simple_format @event.tasks_text if @event.tasks_text %>
                           <% @event.tasks_files.each do |document| %>
                             <p class="documents_one"><%= link_to document.title, document.file.url %>
                               <span> (PDF. <%= number_to_human_size(document.file.size, precision: 0) %>)</span>
@@ -45,7 +45,7 @@
                         </div>
 
                         <div class="tab_content" id="tab_content3">
-                          <%= simple_format @event.events_text %>
+                          <%= simple_format @event.events_text if @event.events_text %>
                           <% @event.events_files.each do |document| %>
                             <p class="documents_one"><%= link_to document.title, document.file.url %>
                               <span> (PDF. <%= number_to_human_size(document.file.size, precision: 0) %>)</span>
