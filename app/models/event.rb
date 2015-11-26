@@ -13,4 +13,6 @@ class Event < ActiveRecord::Base
   scope :published, -> { where(published: true) }
   scope :year, -> (year) { where('extract(year from start_date) = ?', year) }
   scope :month, -> (month) { where('extract(month from start_date) = ?', month) }
+  scope :category_ids, -> (category_ids) { where(category_id: category_ids) }
+  scope :subject_ids, -> (subject_ids) { includes(:subjects).where(subjects: {id: subject_ids}) }
 end

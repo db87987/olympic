@@ -57,190 +57,48 @@
 
          <hr>
       <% end %>
-<!--
-         <div class="calendar_content today">
-             <h2 class="today">Февраль</h2>
-             <div class="calendar_day">
-                 <div class="calendar_date">
-                     <p>1 февраля</p>
-                 </div>
-                 <div class="calendar_name">
-
-                     <p><a href="#">Московская физическая олимпиада</a></p>
-                     <span>Класс: 9-11 класс</span>
-                     <br>
-                     <span>Длительность: 1 день</span>
-
-                     <p><a href="#">Осенний Тур Международного Турнира Городов</a></p>
-                     <span>Класс: 5 класс</span>
-                     <br>
-                     <span>Длительность: 1 день</span>
-                 </div>
-                 <div class="calendar_category">
-                     <p>Физика</p>
-                     <p>География</p>
-                 </div>
-             </div>
-
-
-             <div class="calendar_day today">
-                 <div class="calendar_date">
-                     <p>2 февраля</p>
-                     <span>Сегодня</span>
-                 </div>
-                 <div class="calendar_name">
-                     <p><a href="#">Строгановская олимпиада по рисунку</a></p>
-                     <span>Класс: 9-11 класс</span>
-                     <br>
-                     <span>Длительность: 1 день</span>
-                     <p><a href="#">Московская физическая олимпиада</a></p>
-                     <span>Класс: 9-11 класс</span>
-                     <br>
-                     <span>Длительность: 1 день</span>
-                     <p><a href="#">Олимпиада «Юные Таланты»</a></p>
-                     <span>Класс: 5 класс</span>
-                     <br>
-                     <span>Длительность: 1 день</span>
-                     <p><a href="#">Строгановская олимпиада по рисунку</a></p>
-                     <span>Класс: 5 класс</span>
-                     <br>
-                     <span>Длительность: 1 день</span>
-                 </div>
-
-                 <div class="calendar_category">
-                     <p>Рисование</p>
-                     <p>Физика</p>
-                     <p>ОБЖ</p>
-                     <p>Рисование</p>
-                 </div>
-             </div>
-
-
-
-
-             <div class="calendar_day green">
-                 <div class="calendar_date">
-                     <p>8 февраля</p>
-                 </div>
-                 <div class="calendar_name">
-                     <p><a href="#">День учителя </a></p>
-
-                 </div>
-                 <div class="calendar_category one">
-                     <p>События</p>
-                 </div>
-             </div>
-
-             <div class="calendar_day blue">
-                 <div class="calendar_date">
-                     <p>10 февраля</p>
-                 </div>
-                 <div class="calendar_name">
-                     <p><a href="#">Весенние каникулы  </a></p>
-                     <span>Длительность: 10 – 20 февраля</span>
-
-                 </div>
-                 <div class="calendar_category one">
-                     <p>События</p>
-                 </div>
-             </div>
-
-             <div class="calendar_day">
-                 <div class="calendar_date">
-                     <p>21 февраля</p>
-                 </div>
-                 <div class="calendar_name">
-                     <p><a href="#">Олимпиада Школьников  «Шаг В Будущее» </a></p>
-                     <span>Класс: 5 класс</span>
-                     <p><a href="#">Строгановская олимпиада по рисунку</a></p>
-                     <span>Класс: 5 класс</span>
-                 </div>
-                 <div class="calendar_category nodate">
-                     <p>Кибернетика</p>
-                     <p>Академический рисунок</p>
-                 </div>
-             </div>
-
-             <div class="calendar_day">
-                 <div class="calendar_date">
-                     <p>21 февраля</p>
-                 </div>
-                 <div class="calendar_name">
-                     <p><a href="#">Олимпиада Школьников  «Шаг В Будущее» </a></p>
-                     <span>Класс: 5 класс</span>
-                     <p><a href="#">Строгановская олимпиада по рисунку</a></p>
-                     <span>Класс: 5 класс</span>
-                     <p><a href="#">Строгановская олимпиада по рисунку</a></p>
-                     <span>Класс: 5 класс</span>
-                 </div>
-                 <div class="calendar_category nodate">
-                     <p>Кибернетика</p>
-                     <p>Академический рисунок</p>
-                     <p>Академический рисунок</p>
-                 </div>
-             </div>
-         </div>
-
-
-         <hr>
--->
-
 
      </div>
 
-<!--
+
      <div class="right_sidebar">
          <div class="quest_filter">
              <p class="filter_name">Олимпиады</p>
-             <form>
-                 <p>
-                     <input type="checkbox" class="checkbox" id="checkbox" />
-                     <label for="checkbox"> Всероссийские олимпиады</label>
-                 </p>
-                 <p>
-                     <input type="checkbox" class="checkbox" id="checkbox1" />
-                     <label for="checkbox1"> Региональные олимпиады</label>
-                 </p>
-                 <p>
-                     <input type="checkbox" class="checkbox" id="checkbox2" />
-                     <label for="checkbox2"> Олимпиады РСОШ</label>
-                 </p>
-                 <p>
-                     <input type="checkbox" class="checkbox" id="checkbox3" />
-                     <label for="checkbox3"> Научная деятельность</label>
-                 </p>
-
-
+             <form id="events_categories_filter_form" method="get">
+               <% @categories.each do |category| %>
+               <p>
+                   <%= check_box_tag "category_ids[]", category.id.to_s, @category_ids.include?(category.id.to_s), id: category.id, class: 'checkbox category' %>
+                   <%= label_tag category.id.to_s, category.title %>
+               </p>
+               <% end %>
+               <% if params[:year] %>
+                 <%= hidden_field_tag :year, params[:year] %>
+               <% end %>
+               <% if params[:month] %>
+                 <%= hidden_field_tag :month, params[:month] %>
+               <% end %>
              </form>
 
              <p class="filter_name two">Предметы</p>
-             <form>
-                 <p>
-                     <input type="checkbox" class="checkbox" id="checkbox4" />
-                     <label for="checkbox4"> Математика</label>
-                 </p>
-                 <p>
-                     <input type="checkbox" class="checkbox" id="checkbox5" />
-                     <label for="checkbox5"> Русский язык</label>
-                 </p>
-                 <p>
-                     <input type="checkbox" class="checkbox" id="checkbox6" />
-                     <label for="checkbox6"> Литература</label>
-                 </p>
-                 <p>
-                     <input type="checkbox" class="checkbox" id="checkbox7" />
-                     <label for="checkbox7"> География</label>
-                 </p>
-                 <p>
-                     <input type="checkbox" class="checkbox" id="checkbox8" />
-                     <label for="checkbox8"> История России XX века</label>
-                 </p>
-
-
-
+             <form id="events_subjects_filter_form" method="get">
+               <% @subjects.each do |subject| %>
+               <p>
+                   <%= check_box_tag "subject_ids[]", subject.id.to_s, @subject_ids.include?(subject.id.to_s), id: subject.id, class: 'checkbox subject' %>
+                   <%= label_tag subject.id.to_s, subject.title %>
+               </p>
+               <% end %>
+               <% if params[:category_ids] %>
+                 <%= hidden_field_tag :category_ids, params[:category_ids] %>
+               <% end %>
+               <% if params[:year] %>
+                 <%= hidden_field_tag :year, params[:year] %>
+               <% end %>
+               <% if params[:month] %>
+                 <%= hidden_field_tag :month, params[:month] %>
+               <% end %>
              </form>
              <p>
-                 <input type="submit" class="button" value="Сбросить значения фильтра" />
+                 <input type="submit" id="event_filter_form_reset" class="button" value="Сбросить значения фильтра" />
              </p>
 
          </div>
@@ -248,7 +106,6 @@
 
      </div>
 
--->
 
 
  </div>

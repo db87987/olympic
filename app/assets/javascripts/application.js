@@ -18,3 +18,4 @@
 //= require own.main
 //= require coin-slider.min
 //= require document_filter
+//= require event_filter
